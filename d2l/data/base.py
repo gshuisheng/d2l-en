@@ -28,7 +28,7 @@ def data_iter_random(corpus_indices, batch_size, num_steps, ctx=None):
     # Offset for the iterator over the data
     offset = int(random.uniform(0, num_steps))
     # Subtract 1 extra since we need to account for the sequence length
-    num_examples = ((len(corpus_indices) - offset - 1) // num_steps) - 1
+    num_examples = (len(corpus_indices) - offset - 1) // num_steps
     # Discard half empty batches
     num_batches = num_examples // batch_size
     example_indices = list(
